@@ -1,0 +1,5 @@
+item.thermalunderwear_head.name=Солнцезащитный капюшон
+item.thermalunderwear_chest.name=Солнцезащитная накидка
+item.stitched_reed.name=Сшитый тростник
+
+tooltip.thermalunderwear.damage=Прочность защиты от солнца: %s

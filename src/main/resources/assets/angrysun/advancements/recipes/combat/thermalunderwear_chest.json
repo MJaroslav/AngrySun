@@ -1,0 +1,32 @@
+{
+  "parent": "angrysun:recipes/root",
+  "rewards": {
+    "recipes": [
+      "angrysun:thermalunderwear_chest"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "angrysun:thermalunderwear_chest"
+      }
+    },
+    "has_stitched_reed": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "angrysun:stitched_reed"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_stitched_reed"
+    ]
+  ]
+}

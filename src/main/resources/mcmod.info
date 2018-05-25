@@ -1,0 +1,16 @@
+[
+{
+  "modid": "angrysun",
+  "name": "Angry Sun",
+  "description": "You will burn under the Sun!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MJaroslav", "TheTestMod"],
+  "credits": "For ZigTheHedge",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

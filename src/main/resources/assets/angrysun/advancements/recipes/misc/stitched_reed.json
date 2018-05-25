@@ -1,0 +1,42 @@
+{
+  "parent": "angrysun:recipes/root",
+  "rewards": {
+    "recipes": [
+      "angrysun:stitched_reed"
+    ]
+  },
+  "criteria": {
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "angrysun:stitched_reed"
+      }
+    },
+    "has_materials": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:reeds"
+          },
+          {
+            "item": "minecraft:string"
+          },
+          {
+            "item": "minecraft:wool",
+            "data": 0
+          },
+          {
+            "item": "minecraft:paper"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_materials"
+    ]
+  ]
+}

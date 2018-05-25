@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "angrysun:items/thermalunderwear_chest",
+    "layer1": "angrysun:items/thermalunderwear_chest_overlay"
+  }
+}
