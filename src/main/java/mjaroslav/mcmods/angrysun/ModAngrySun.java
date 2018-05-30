@@ -16,7 +16,6 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -56,8 +55,6 @@ public class ModAngrySun {
 							: new NBTTagCompound();
 					if (!thermal.hasKey(ItemThermalUnderwear.DAMAGE)
 							|| thermal.getInteger(ItemThermalUnderwear.DAMAGE) <= stack.getMaxDamage() / 2) {
-						player.sendMessage(new TextComponentString(
-								thermal.getInteger(ItemThermalUnderwear.DAMAGE) + " " + stack.getMaxDamage() / 2));
 						thermal.setInteger(ItemThermalUnderwear.DAMAGE, stack.getMaxDamage() - stack.getItemDamage());
 						head.getTagCompound().setTag(ItemThermalUnderwear.THERMALUNDERWEAR, thermal);
 						return true;
@@ -85,8 +82,8 @@ public class ModAngrySun {
 
 	public static boolean armorHasThermalUnderwear(ItemStack stack) {
 		return !stack.isEmpty() && (stack.getItem() instanceof ItemThermalUnderwear
-				|| (stack.getItem() instanceof ItemArmor && ConfigInfo.thermalunderwear && stack.hasTagCompound()
-						&& stack.getTagCompound().hasKey(ItemThermalUnderwear.THERMALUNDERWEAR)));
+				|| ((stack.getItem() instanceof ItemArmor) && ((!ConfigInfo.thermalunderwear) || (stack.hasTagCompound()
+						&& stack.getTagCompound().hasKey(ItemThermalUnderwear.THERMALUNDERWEAR)))));
 	}
 
 	public static void damageThermalUnderwear(EntityPlayer player, ItemStack stack) {
@@ -122,7 +119,7 @@ public class ModAngrySun {
 				damageThermalUnderwear(player, chest);
 				flag1 = false;
 			}
-			return ConfigInfo.cloak ? flag1 && flag : flag;
+			return ConfigInfo.cloak ? (flag1 || flag) : flag;
 		} else
 			return false;
 	}

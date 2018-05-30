@@ -22,12 +22,13 @@ public class ClientProxy extends CommonProxy {
     public void init(FMLInitializationEvent event) {
         super.init(event);
         ItemRegistry.registerRender();
-        Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
-            public int colorMultiplier(ItemStack stack, int tintIndex) {
-                return tintIndex > 0 ? -1 : ((ItemThermalUnderwear) stack.getItem()).getColor(stack);
-            }
-		}, ConfigInfo.cloak ? new Item[] { ItemRegistry.thermalUnderwearHead, ItemRegistry.thermalUnderwearChest }
-				: new Item[] { ItemRegistry.thermalUnderwearHead });
+        if(ConfigInfo.thermalunderwear)
+            Minecraft.getMinecraft().getItemColors().registerItemColorHandler(new IItemColor() {
+                public int colorMultiplier(ItemStack stack, int tintIndex) {
+                    return tintIndex > 0 ? -1 : ((ItemThermalUnderwear) stack.getItem()).getColor(stack);
+                }
+		    }, ConfigInfo.cloak ? new Item[] { ItemRegistry.thermalUnderwearHead, ItemRegistry.thermalUnderwearChest }
+		    		: new Item[] { ItemRegistry.thermalUnderwearHead });
     }
 
     @Override
