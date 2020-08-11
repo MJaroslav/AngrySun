@@ -3,27 +3,14 @@ package mjaroslav.mcmods.angrysun.common.handler;
 import mjaroslav.mcmods.angrysun.ModAngrySun;
 import mjaroslav.mcmods.angrysun.common.item.ItemThermalUnderwear;
 import mjaroslav.mcmods.angrysun.lib.ConfigInfo;
-import net.minecraft.client.resources.I18n;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class PlayerEventHandler {
-    @SubscribeEvent
-    public void onItemTooltipEvent(ItemTooltipEvent event) {
-        if (!event.getItemStack().isEmpty() && event.getItemStack().hasTagCompound()
-                && event.getItemStack().getTagCompound().hasKey(ItemThermalUnderwear.THERMALUNDERWEAR)) {
-            NBTTagCompound thermal = (NBTTagCompound) event.getItemStack().getTagCompound()
-                    .getTag(ItemThermalUnderwear.THERMALUNDERWEAR);
-            event.getToolTip().add(1,
-                    I18n.format("tooltip.thermalunderwear.damage", thermal.getInteger(ItemThermalUnderwear.DAMAGE)));
-        }
-    }
-
     @SubscribeEvent
     public void onPlayerTickEvent(TickEvent.PlayerTickEvent event) {
         if (event.player.world.isDaytime() && !event.player.world.isRemote) {
