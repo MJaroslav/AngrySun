@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "angrysun",
+  "version": "${version}",
+
+  "name": "BookStealer",
+  "description": "You will burn under the Sun!",
+  "authors": [
+    "MJaroslav",
+    "TheTestMod"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/angrysun",
+    "sources": "https://github.com/MJaroslav/AngrySun",
+    "issues": "https://github.com/MJaroslav/AngrySun/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/angrysun/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.mjaroslav.angrysun.AngrySunMod"
+    ],
+    "client": [
+      "com.github.mjaroslav.angrysun.AngrySunClientMod"
+    ],
+    "modmenu": [
+      "com.github.mjaroslav.angrysun.integration.ModMenuIntegration"
+    ]
+  },
+  "mixins": [
+    "angrysun.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "minecraft": "1.16.x",
+    "cloth-config2": ">=4.13.49",
+    "fabric": ">=0.42.0+1.16"
+  },
+  "suggests": {
+    "modmenu": ">=1.16.22"
+  }
+}
